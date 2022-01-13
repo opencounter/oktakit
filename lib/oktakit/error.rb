@@ -129,7 +129,7 @@ module Oktakit
   # Raised when Okta returns a 429 HTTP status code
   class RateLimitingError < ClientError
     def rate_limit_reset
-      ts = @response.dig(:response_headers, "X-Rate-Limit-Reset")
+      ts = @response.dig(:response_headers, "x-rate-limit-reset")
       return Time.now unless ts
       Time.at(ts)
     end
